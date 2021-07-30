@@ -1,0 +1,24 @@
+{
+  "name": "majorityrules",
+  "version": "1.0.0",
+  "description": "Majority Rules App.",
+  "main": "server.js",
+  "scripts": {
+    "dev": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LeoBadeaux/majorityrules.git"
+  },
+  "author": "Majority Ruels",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LeoBadeaux/majorityrules/issues"
+  },
+  "homepage": "https://github.com/LeoBadeaux/majorityrules#readme",
+  "dependencies": {
+    "ejs": "^3.1.6",
+    "express": "^4.17.1",
+    "nodemon": "^2.0.12"
+  }
+}
