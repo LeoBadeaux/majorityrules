@@ -16,14 +16,58 @@
 <link rel="apple-touch-icon" href="/assets/majorityrules2-192_x_192.png" />
 <link rel="apple-touch-icon" href="/assets/majorityrules2-384_x_384.png" />
 <link rel="apple-touch-icon" href="/assets/majorityrules2-512_x_512.png" />
-<meta name="apple-mobile-web-app-status-bar" content="black-translucent" />
+<meta content="black-translucent" name="apple-mobile-web-app-status-bar-style">
+<meta content="no-store" http-equiv="Cache-Control">
 <meta name="theme-color" content="#ffffff" />
+<meta content="yes" name="apple-mobile-web-app-capable">
+<meta content="yes" name="mobile-web-app-capable">
 <script type="text/javascript" src="/app.js"></script>
 </head>
 <body style="margin: 0">
+<img class="logo" src="/assets/logo.svg">
+<div class="nextgame">next game</div>
+<div class="gamestatus">7pm tmrw, $200 prize</div>
+<div class="profilecard"></div>
 <div class="startbtn">invite for extra lives</div>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+.gamestatus {
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    font-size: 18pt;
+    width: 100%;
+    position: absolute;
+    top: 28%;
+    left: 50%;
+    transform: translate(-50%, 0px);
+    text-align: center;
+}
+.nextgame {
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    font-size: 10pt;
+    width: 100%;
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    transform: translate(-50%, 0px);
+    text-align: center;
+}
+.logo {
+    width: 40%;
+    display: block;
+    margin: auto;
+    margin-top: 10%;
+}
+.center {
+    height: 100vh;
+    width: 100%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
 body {
     animation-name: bg_animation;
 				animation-duration: 15s;
@@ -48,7 +92,17 @@ body {
     text-align: center;
     font-size: 15pt;
     font-family: 'Roboto', sans-serif;
-    
+}
+
+.profilecard {
+    left: 50%;
+    height: 45%;
+    bottom: 40%;
+    border-radius: 20px;
+    transform: translate(-50%, 50%);
+    background: white;
+    width: 90%;
+    position: absolute;
 }
 
 @keyframes bg_animation {
