@@ -1,4 +1,4 @@
-const helloWorld = "hello-world"
+const majorityRules = "majorityrules"
 const assets = [
   "/",
   "/app.js"
@@ -6,7 +6,7 @@ const assets = [
 
 self.addEventListener("install", installEvent => {
   installEvent.waitUntil(
-    caches.open(helloWorld).then(cache => {
+    caches.open(majorityRules).then(cache => {
       cache.addAll(assets)
     })
   )

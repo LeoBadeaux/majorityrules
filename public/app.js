@@ -9,7 +9,7 @@ if ("serviceWorker" in navigator) {
 
 function clearupdate() {
     alert("Clear update init");
-    caches.delete("hello-world");
+    caches.delete("majorityrules");
     alert("Reloading");
     window.location.reload();
 }

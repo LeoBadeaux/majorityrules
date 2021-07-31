@@ -1,6 +1,6 @@
 {
-    "name": "Hello Worldx",
-    "short_name": "Hello World",
+    "name": "Majority Rules",
+    "short_name": "Majority Rules",
     "start_url": "/",
     "display": "standalone",
     "background_color": "#ffffff",
