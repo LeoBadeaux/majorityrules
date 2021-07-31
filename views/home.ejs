@@ -20,7 +20,63 @@
 <meta name="theme-color" content="#ffffff" />
 <script type="text/javascript" src="/app.js"></script>
 </head>
-<body>
-<div>Hello World</div>
+<body style="margin: 0">
+<div class="startbtn">invite for extra lives</div>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+body {
+    animation-name: bg_animation;
+				animation-duration: 15s;
+				animation-timing-function: linear;
+				animation-delay: 0;
+				animation-iteration-count: infinite;
+				animation-direction: alternate;
+				animation-play-state: running;
+}
+.startbtn {
+    background-color: rgba(255, 255, 255, 0.3);
+    position: absolute;
+    width: 90%;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, 0px);
+    margin-right: 20px;
+    border-radius: 50px;
+    margin-bottom: 20px;
+    color: white;
+    padding: 20px 0px 20px 0px;
+    text-align: center;
+    font-size: 15pt;
+    font-family: 'Roboto', sans-serif;
+    
+}
+
+@keyframes bg_animation {
+				0% {
+					background-color: hsl(157, 52%, 58%); /* green */
+				}
+				
+				20% {
+					background-color: hsl(182, 52%, 57%); /* light blue */
+				}
+
+				40% {
+					background-color: hsl(225, 46%, 60%); /* blue */
+				}
+
+				60% {
+					background-color: hsl(280, 45%, 58%); /* purple */
+				}
+
+				80% {
+					background-color: hsl(323, 40%, 54%); /* pink */
+				}
+
+				100% {
+					background-color: hsl(32, 52%, 54%); /* orange */
+				}
+
+			}
+</style>
 </body>
 </html>
