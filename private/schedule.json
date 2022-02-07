@@ -1,0 +1,10 @@
+{
+    "isActive": false,
+    "startTime": "2018-01-01T00:00:00.000Z",
+    "nextGameText": "Next Game",
+    "prizeCents": 500,
+    "currency": "USD",
+    "display": {
+        "logo": "/assets/logo.svg"
+    }
+}
