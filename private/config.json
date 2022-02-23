@@ -1,0 +1,27 @@
+{
+    "applicationName": "Majority Rules",
+    "applicationInfo": {
+        "name": "Majority Rules",
+        "icon": "/assets/majorityrules2-512_x_512.png"
+    },
+    "debug": {
+        "enabled": true,
+        "changeApiUrl": true
+    },
+    "schedule": {
+        "scheduleType": "classic",
+        "nextGameText": "Next Game",
+        "bgAnimation": true,
+        "invite": {
+            "enabled": true,
+            "btnText": "Invite for extra lives",
+            "rewardType": "life"
+        }
+    },
+    "notification": {
+        "enabled": true,
+        "allowInBackground": true,
+        "requireAuthToReceive": false,
+        "provider": "onesignal"
+    }
+}

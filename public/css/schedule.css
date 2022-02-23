@@ -1,0 +1,123 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+ .gamestatus {
+     color: white;
+     font-family: 'Roboto', sans-serif;
+     font-size: 30px;
+     width: 90%;
+     position: absolute;
+     top: 28%;
+     left: 50%;
+     transform: translate(-50%, 0px);
+     text-align: center;
+}
+ .nextgame {
+     color: white;
+     font-family: 'Roboto', sans-serif;
+     font-size: 10pt;
+     width: 100%;
+     position: absolute;
+     top: 25%;
+     left: 50%;
+     transform: translate(-50%, 0px);
+     text-align: center;
+}
+ .logo {
+     width: 40%;
+     display: block;
+     margin: auto;
+     margin-top: 10%;
+}
+ .center {
+     height: 100vh;
+     width: 100%;
+     text-align: center;
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     justify-content: center;
+}
+ body {
+     aspect-ratio: 1/1;
+     background-color: #000000;
+     animation-name: bg_animation;
+     animation-duration: 15s;
+     animation-timing-function: linear;
+     animation-delay: 0;
+     animation-iteration-count: infinite;
+     animation-direction: alternate;
+     animation-play-state: running;
+}
+ .startbtn {
+     background-color: rgba(255, 255, 255, 0.3);
+     position: absolute;
+     width: 90%;
+     bottom: 0px;
+     left: 50%;
+     transform: translate(-50%, 0px);
+     margin-right: 20px;
+     border-radius: 50px;
+     margin-bottom: 20px;
+     color: white;
+     padding: 20px 0px 20px 0px;
+     text-align: center;
+     font-size: 15pt;
+     font-family: 'Roboto', sans-serif;
+     display: block;
+}
+ .profilecard {
+     left: 50%;
+     height: 45%;
+     bottom: 100px;
+     border-radius: 20px;
+     transform: translate(-50%, 0);
+     background: white;
+     width: 90%;
+     position: absolute;
+}
+
+.joingame {
+    background-color: rgb(255, 0, 119);
+    position: absolute;
+    width: 50%;
+    bottom: 440px;
+    left: 50%;
+    transform: translate(-50%, 0px);
+    margin-right: 20px;
+    border-radius: 50px;
+    margin-bottom: 20px;
+    color: white;
+    padding: 20px 0px 20px 0px;
+    text-align: center;
+    font-size: 15pt;
+    font-family: 'Roboto', sans-serif;
+    display: block;
+}
+
+/*Live Game Styles*/
+
+ @keyframes bg_animation {
+     0% {
+         background-color: hsl(157, 52%, 58%);
+        /* green */
+    }
+     20% {
+         background-color: hsl(182, 52%, 57%);
+        /* light blue */
+    }
+     40% {
+         background-color: hsl(225, 46%, 60%);
+        /* blue */
+    }
+     60% {
+         background-color: hsl(280, 45%, 58%);
+        /* purple */
+    }
+     80% {
+         background-color: hsl(323, 40%, 54%);
+        /* pink */
+    }
+     100% {
+         background-color: hsl(32, 52%, 54%);
+        /* orange */
+    }
+}

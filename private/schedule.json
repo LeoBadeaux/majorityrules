@@ -1,10 +1,19 @@
 {
-    "isActive": false,
-    "startTime": "2018-01-01T00:00:00.000Z",
-    "nextGameText": "Next Game",
-    "prizeCents": 500,
+    "isActive": true,
+    "gameType": "mjrules",
+    "isTestGame": false,
+    "isWinnerTakeAll": false,
+    "startTime": "2022-02-13T20:00:00.000Z",
+    "prizeCents": 0,
+    "prizePoints": 5000,
     "currency": "USD",
     "display": {
+        "title": "Majority Rules",
+        "titleColor": "#FFD700",
         "logo": "/assets/logo.svg"
+    },
+    "live": {
+        "flv": "",
+        "socketUrl": ""
     }
 }
