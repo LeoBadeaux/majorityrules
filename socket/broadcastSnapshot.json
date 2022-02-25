@@ -1,0 +1,26 @@
+{
+    "type": "broadcastSnapshot",
+    "snapshotId": "snap-gid3456",
+    "broadcastStats": {
+        "prize": "$20",
+        "prizeCents": 2000,
+        "prizePoints": 20
+    },
+    "viewerStats": {
+        "playing": 1235,
+        "watching": 567,
+        "eliminated": 123
+    },
+    "question": {
+        "current": 0,
+        "total": 0,
+        "isPrizeQuestion": false,
+        "lastQuestionWithPrize": 0,
+        "prizePool": "$0",
+        "prizePoolCents": 0,
+        "prizePoolPoints": 0,
+        "usersTookPrizeFromQuestion": 0,
+        "rewardPerUsersStr": "$250",
+        "rewardPerUsersCents": 25000
+    }
+}

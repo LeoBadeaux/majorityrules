@@ -1,11 +1,11 @@
 {
-    "isActive": true,
-    "gameType": "mjrules",
+    "isActive": false,
+    "gameType": "mjrules-sports",
     "isTestGame": false,
-    "isWinnerTakeAll": false,
+    "isWinnerTakeAll": true,
     "startTime": "2022-02-13T20:00:00.000Z",
-    "prizeCents": 0,
-    "prizePoints": 5000,
+    "prizeCents": 10000,
+    "prizePoints": 0,
     "currency": "USD",
     "display": {
         "title": "Majority Rules",

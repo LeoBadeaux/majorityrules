@@ -67,6 +67,46 @@ app.get('/api/leaderboard', function(req, res) {
           }
       });
   };
+
+    //when a client connects, console.log a message
+    wss.on('connection', function connection(ws) {
+
+        fs.readFile(__dirname + '/private/schedule.json', 'utf8', function (err, data) {
+            if (err) throw err;
+            var schedule = JSON.parse(data);
+
+            wss.broadcast(JSON.stringify({
+                type: "gameStatus",
+                prize: (schedule.prizeCents/100).toLocaleString('en-US', { style: 'currency', currency: schedule.currency }),
+                prizeCents: schedule.prizeCents,
+                prizePoints: schedule.prizePoints,
+                isWinnerTakeAll: schedule.isWinnerTakeAll,
+                playingState: "pregame",
+                questionInfo: {
+                    current: 0,
+                    total: 12,
+                },
+                vipGameInfo: {
+                    prizeCents: 0,
+                    prizePoints: 0,
+                },
+                extraLife: false,
+                eraser: false,
+                vip: false,
+                "ts": Date.now(),
+            }));
+        });
+    });
+    
+    wss.broadcast(JSON.stringify({
+        "type": "gameStatus",
+        "prize": 0,
+        "prizeCents": 0,
+        "prizePoints": 0,
+        "playingState": "pregame",
+        "ts": Date.now(),
+    }));
+
   
   wss.on('connection', function connection(ws) {
       ws.on('message', function incoming(message) {

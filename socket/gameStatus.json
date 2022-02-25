@@ -1,0 +1,8 @@
+{
+    "type": "gameStatus",
+    "prize": "$500",
+    "prizeCents": 500,
+    "prizePoints": 0,
+    "playingState": "pregame",
+    "ts": "1579098983"
+}

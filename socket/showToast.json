@@ -1,5 +1,5 @@
 {
     "type": "showToast",
-    "icon": "",
-    "text": "Sending friend request..."
+    "text": "Toast Text",
+    "icon": ""
 }

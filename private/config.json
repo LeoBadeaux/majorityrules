@@ -18,6 +18,14 @@
             "rewardType": "life"
         }
     },
+    "liveGame": {
+        "chat": {
+            "enabled": false,
+            "interval": 5000,
+            "maxMsgPerInterval": 5,
+            "chatWarningMsg": "Please wait ${interval} seconds before sending another message"
+        }
+    },
     "notification": {
         "enabled": true,
         "allowInBackground": true,

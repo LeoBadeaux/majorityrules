@@ -36,17 +36,12 @@ function getScheduleInfo() {
 				gameStatus.textContent = "No Game Scheduled";
 			}
 
-			var num = schedule.prizeCents
-			num /= 100;
-			num.toLocaleString("en-US", {
-				style: "currency",
-				currency: schedule.currency
-			});
+			let gamePrizeCents = (schedule.prizeCents/100).toLocaleString('en-US', { style: 'currency', currency: schedule.currency })
 
 			if (schedule.prizeCents && schedule.prizePoints) {
-				gameStatus.textContent = `${startTimeString} $${num} + ${schedule.prizePoints}pts`;
+				gameStatus.textContent = `${startTimeString} ${gamePrizeCents} + ${schedule.prizePoints}pts`;
 			} else if (schedule.prizeCents) {
-				gameStatus.textContent = `${startTimeString} $${num}`;
+				gameStatus.textContent = `${startTimeString} ${gamePrizeCents}`;
 			} else if (schedule.prizePoints) {
 				gameStatus.textContent = `${startTimeString} ${schedule.prizePoints}pts`;
 			} else if (schedule.startTime) {
@@ -54,9 +49,9 @@ function getScheduleInfo() {
 			}
 			if (schedule.isActive && schedule.prizeCents && schedule.prizePoints) {
 				if (schedule.prizePoints == 1) {
-					gameStatus.textContent = `We're live! $${num} + ${schedule.prizePoints}pt`
+					gameStatus.textContent = `We're live! ${gamePrizeCents} + ${schedule.prizePoints}pt`
 				} else {
-					gameStatus.textContent = `We're live! $${num} + ${schedule.prizePoints}pts`
+					gameStatus.textContent = `We're live! ${gamePrizeCents} + ${schedule.prizePoints}pts`
 				}
 			} else if (schedule.isActive && schedule.prizeCents == 0) {
 				if (schedule.prizePoints == 1) {
@@ -65,7 +60,7 @@ function getScheduleInfo() {
 					gameStatus.textContent = `We're live! ${schedule.prizePoints}pts`;
 				}
 			} else if (schedule.isActive && schedule.prizePoints == 0) {
-				gameStatus.textContent = `We're live! $${num}`;
+				gameStatus.textContent = `We're live! ${gamePrizeCents}`;
 			}
 			if (schedule.isActive && schedule.prizeCents == 0 && schedule.prizePoints == 0) {
 				gameStatus.textContent = `We're live!`;
@@ -86,11 +81,24 @@ function getScheduleInfo() {
 
 			document.getElementById('gameLogo').src = schedule.display.logo;
 
-			//Set the logo for live game
 			if (schedule.gameType == 'mjrules') {
 				document.getElementById('gameIcon').src = '/assets/live-games/logo-norm.png';
 			} if (schedule.gameType == 'mjrules-sports') {
 				document.getElementById('gameIcon').src = '/assets/live-games/logo-sports.png';
+			}
+
+			if (schedule.isActive) {
+				//This code will set the url for the stream
+				if (flvjs.isSupported()) {
+					var videoElement = document.getElementById('videoElement');
+					var flvPlayer = flvjs.createPlayer({
+						type: 'flv',
+						url: schedule.live.flv
+					});
+					flvPlayer.attachMediaElement(videoElement);
+					flvPlayer.load();
+					flvPlayer.play();
+				}
 			}
 		})
 		.catch(function(err) {

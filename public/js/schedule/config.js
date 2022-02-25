@@ -36,4 +36,17 @@ fetch('/api/config')
 			document.body.style.animationName = 'sportsBg';
 			document.body.style.backgroundColor = 'hsl(280, 45%, 58%)';
 		}
+
+		//Chat Configuration
+
+		if (config.liveGame.chat.enabled) {
+			console.log('chat enabled');
+		} else {
+			var interval = config.liveGame.chat.interval / 1000;
+
+			if (config.liveGame.chat.chatWarningMsg.includes('${interval}')) {
+				config.liveGame.chat.chatWarningMsg = config.liveGame.chat.chatWarningMsg.replace('${interval}', interval + 's');
+				console.log(config.liveGame.chat.chatWarningMsg);
+			}
+		}
 	})

@@ -1,4 +1,5 @@
-var socket = new WebSocket("ws://10.0.0.195:8085");
+var socket = new WebSocket(`ws://${window.location.hostname}:8085`);
+console.log(`ws://${window.location.hostname}:8085`);
 
 socket.onopen = function(event) {
 	console.log("Connected to socket");
@@ -9,6 +10,15 @@ socket.onmessage = function(event) {
 	var data = JSON.parse(event.data);
 
 	try {
+
+		if (data.type == "gameStatus") {
+			if (data.playingState == "eliminated") {
+				document.getElementsByClassName("questionWindow")[0].style.backgroundColor = "rgb(255, 0, 85)";
+			} else {
+				document.getElementsByClassName("questionWindow")[0].style.backgroundColor = "rgb(255, 136, 0)";
+			}
+		}
+
 		if (data.type == "question") {
 			console.log("Question received");
 			document.getElementsByClassName('questionWindow')[0].style.display = 'block';
@@ -42,7 +52,6 @@ socket.onmessage = function(event) {
         if (data.type == "broadcastStats") {
             let viewStats = document.getElementById('viewCount');
 
-            //convert data.viewerCounts.connected to K, M, B
             let viewCount = data.viewerCounts.connected;
             if (viewCount >= 1000) {
                 viewCount = (viewCount / 1000).toFixed(1) + "K";
@@ -56,6 +65,48 @@ socket.onmessage = function(event) {
             
             document.getElementById('viewCount').textContent = viewCount;
         }
+
+		//Toast messages
+		if (data.type == "showToast") {
+			document.getElementsByClassName('toastWindow')[0].style.display = 'block';
+			var toastMessage = data.text;
+
+			var boldedText = toastMessage.split("*");
+			var boldedTextHtml = "";
+			for (var i = 0; i < boldedText.length; i++) {
+				if (i % 2 == 0) {
+					boldedTextHtml += boldedText[i];
+				} else {
+					boldedTextHtml += `<b>${boldedText[i]}</b>`;
+				}
+
+				if (toastMessage.length > 100) {
+					toastMessage = toastMessage.substring(0, toastMessage.length - 1);
+					toastMessage += "...";
+				}
+
+				document.getElementById('toastText').innerHTML = boldedTextHtml;
+				document.getElementById('toastIcon').src = data.icon;
+
+				document.getElementById('toastIcon').style.width = `${document.getElementsByClassName('toastWindow')[0].offsetWidth * 0.25}px`;
+
+			}
+			document.getElementById('toastText').innerHTML = boldedTextHtml;
+
+			document.getElementsByClassName('toastWindow')[0].style.backgroundColor = 'white';
+
+			setTimeout(function() {
+				document.getElementsByClassName('toastWindow')[0].style.animation = 'toastRemove .5s';
+			}, 10000);
+
+			setTimeout(function() {
+				document.getElementsByClassName('toastWindow')[0].style.display = 'none';
+				document.getElementsByClassName('toastWindow')[0].style.backgroundColor = 'rgba(0,0,0,0)';
+				document.getElementsByClassName('toastWindow')[0].style.color = 'rgba(0,0,0,0)';
+				document.getElementById('toastIcon').src = '';
+				document.getElementsByClassName('toastWindow')[0].style.animation = 'none';
+			}, 10500);
+		}
 
 	} catch (e) {
 		console.log(e);
