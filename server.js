@@ -17,6 +17,10 @@ app.get('/', function(req, res) {
     res.render('home');
 });
 
+app.get('/admin', function(req, res) {
+    res.render('admin');
+});
+
 // Api Routes
 app.get('/api/schedule', function(req, res) {
     res.sendFile(__dirname + '/private/schedule.json');
@@ -24,6 +28,10 @@ app.get('/api/schedule', function(req, res) {
 
 app.get('/api/config', function(req, res) {
     res.sendFile(__dirname + '/private/config.json');
+});
+
+app.get('/api/admin/config', function(req, res) {
+    res.sendFile(__dirname + '/private/adminConfig.json');
 });
 
 app.get('/api/users/me', function(req, res) {

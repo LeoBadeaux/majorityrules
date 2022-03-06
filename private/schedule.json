@@ -1,8 +1,8 @@
 {
-    "isActive": false,
-    "gameType": "mjrules-sports",
+    "isActive": true,
+    "gameType": "mjrules",
     "isTestGame": false,
-    "isWinnerTakeAll": true,
+    "isWinnerTakeAll": false,
     "startTime": "2022-02-13T20:00:00.000Z",
     "prizeCents": 10000,
     "prizePoints": 0,
@@ -13,7 +13,7 @@
         "logo": "/assets/logo.svg"
     },
     "live": {
-        "flv": "",
+        "flv": "https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8",
         "socketUrl": ""
     }
 }

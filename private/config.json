@@ -9,27 +9,12 @@
         "changeApiUrl": true
     },
     "schedule": {
-        "scheduleType": "classic",
-        "nextGameText": "Next Game",
         "bgAnimation": true,
         "invite": {
             "enabled": true,
-            "btnText": "Invite for extra lives",
-            "rewardType": "life"
+            "btnText": "Invite for Extra Lives"
         }
     },
-    "liveGame": {
-        "chat": {
-            "enabled": false,
-            "interval": 5000,
-            "maxMsgPerInterval": 5,
-            "chatWarningMsg": "Please wait ${interval} seconds before sending another message"
-        }
-    },
-    "notification": {
-        "enabled": true,
-        "allowInBackground": true,
-        "requireAuthToReceive": false,
-        "provider": "onesignal"
-    }
+    "liveGame": {},
+    "notification": {}
 }

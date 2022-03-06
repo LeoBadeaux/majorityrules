@@ -1,0 +1,11 @@
+{
+    "applicationInfo": {
+        "name": "Majority Rules",
+        "icon": "/assets/majorityrules2-512_x_512.png"
+    },
+    "gameConfig": {
+        "maxPrizeCents": 0,
+        "maxPrizePoints": 1000,
+        "prizeQuestion": false
+    }
+}

@@ -37,6 +37,9 @@ socket.onmessage = function(event) {
 			}
 
 			console.log(totalTime);
+			
+			var audio = new Audio('https://hqrelive.com/sounds/question-general.mp3');
+			audio.play();
 
 			setTimeout(function() {
 				document.getElementById('gameIcon').src = '/assets/live-games/logo-norm.png';

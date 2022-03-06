@@ -69,15 +69,34 @@ function getScheduleInfo() {
 			if (schedule.isActive) {
 				let inviteBtn = document.getElementById('inviteBtn');
 				inviteBtn.textContent = "Join Game";
-				document.getElementsByClassName('liveGameView')[0].style.transform = 'translate(-50%, -50%);';
+				/*document.getElementsByClassName('liveGameView')[0].style.transform = 'translate(-50%, -50%);';
 				document.getElementsByClassName('liveGameView')[0].style.display = 'block';
-				document.getElementsByClassName('liveGameView')[0].style.animation = 'debugPanelActive 0.5s';
+				document.getElementsByClassName('liveGameView')[0].style.animation = 'debugPanelActive 0.5s';*/
 			} else {
 				inviteBtn.textContent = "Invite for Extra Lives";
 				//document.getElementsByClassName('liveGameView')[0].style.display = 'none';
 				document.getElementsByClassName('liveGameView')[0].style.animation = 'debugPanelInactive 0.5s';
 				document.getElementsByClassName('liveGameView')[0].style.transform = 'translate(-50%, 50%)';
 			}
+
+			function joinGameInviteBtn() {
+				//add an event listener to the inviteBtn class
+				let inviteBtn = document.getElementById('inviteBtn');
+				//if the game is active, then show the inviteBtn
+				if (schedule.isActive) {
+				document.getElementsByClassName('liveGameView')[0].style.transform = 'translate(-50%, -50%);';
+				document.getElementsByClassName('liveGameView')[0].style.display = 'block';
+				document.getElementsByClassName('liveGameView')[0].style.animation = 'debugPanelActive 0.5s';
+				} else {
+					console.log('game is not active');
+				}
+			}
+
+			//add an event listener to the startbtn class, run the function joinGameInviteBtn when clicked
+			let startBtn = document.getElementsByClassName('startbtn')[0];
+			startBtn.addEventListener('click', joinGameInviteBtn);
+
+
 
 			document.getElementById('gameLogo').src = schedule.display.logo;
 
