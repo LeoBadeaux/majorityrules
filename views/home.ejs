@@ -1,139 +1,67 @@
 <!DOCTYPE HTML>
 <html lang="en-CA">
-<head>
-<meta charset="UTF-8" />
-<meta content="#2e1532" name="theme-color">
-<meta content="#2e1532" name="apple-mobile-web-app-status-bar-style">
-    <meta content="width=device-width,height=device-height,initial-scale=1,user-scalable=no,viewport-fit=cover" name="viewport">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Hello World</title>
-    <link rel="manifest" href="manifest.json" />
-    <meta name="description" content="Hello World PWA">
-<!-- ios support -->
-<link rel="apple-touch-icon" href="/assets/majorityrules2-72_x_72.png" />
-<link rel="apple-touch-icon" href="/assets/majorityrules2-96_x_96.png" />
-<link rel="apple-touch-icon" href="/assets/majorityrules2-128_x_128.png" />
-<link rel="apple-touch-icon" href="/assets/majorityrules2-144_x_144.png" />
-<link rel="apple-touch-icon" href="/assets/majorityrules2-152_x_152.png" />
-<link rel="apple-touch-icon" href="/assets/majorityrules2-192_x_192.png" />
-<link rel="apple-touch-icon" href="/assets/majorityrules2-384_x_384.png" />
-<link rel="apple-touch-icon" href="/assets/majorityrules2-512_x_512.png" />
-<meta content="black-translucent" name="apple-mobile-web-app-status-bar-style">
-<meta content="no-store" http-equiv="Cache-Control">
-<meta name="theme-color" content="#ffffff" />
-<meta content="yes" name="apple-mobile-web-app-capable">
-<meta content="yes" name="mobile-web-app-capable">
-<script type="text/javascript" src="/app.js"></script>
-</head>
-<body style="margin: 0">
-<img class="logo" src="/assets/logo.svg">
-<div class="nextgame">next game</div>
-<div class="gamestatus">7pm tmrw, $200 prize</div>
-<div class="profilecard"></div>
-<div class="startbtn" onclick="clearupdate()">invite for extra lives</div>
-<style>
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
-.gamestatus {
-    color: white;
-    font-family: 'Roboto', sans-serif;
-    font-size: 30px;
-    width: 100%;
-    position: absolute;
-    top: 28%;
-    left: 50%;
-    transform: translate(-50%, 0px);
-    text-align: center;
-}
+	<head>
+		<meta charset="UTF-8" />
+		<meta content="#2e1532" name="theme-color">
+		<meta content="#2e1532" name="apple-mobile-web-app-status-bar-style">
+		<meta content="width=device-width,height=device-height,initial-scale=1,user-scalable=no,viewport-fit=cover" name="viewport">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<title></title>
+		<link rel="manifest" href="manifest.json" />
+		<meta name="description" content="Hello World PWA">
+		<!-- ios support -->
+		<link rel="apple-touch-icon" href="/assets/majorityrules2-72_x_72.png" />
+		<link rel="apple-touch-icon" href="/assets/majorityrules2-96_x_96.png" />
+		<link rel="apple-touch-icon" href="/assets/majorityrules2-128_x_128.png" />
+		<link rel="apple-touch-icon" href="/assets/majorityrules2-144_x_144.png" />
+		<link rel="apple-touch-icon" href="/assets/majorityrules2-152_x_152.png" />
+		<link rel="apple-touch-icon" href="/assets/majorityrules2-192_x_192.png" />
+		<link rel="apple-touch-icon" href="/assets/majorityrules2-384_x_384.png" />
+		<link rel="apple-touch-icon" href="/assets/majorityrules2-512_x_512.png" />
+		<meta content="black-translucent" name="apple-mobile-web-app-status-bar-style">
+		<meta content="no-store" http-equiv="Cache-Control">
+		<meta name="theme-color" content="#ffffff" />
+		<meta content="yes" name="apple-mobile-web-app-capable">
+		<meta content="yes" name="mobile-web-app-capable">
+	</head>
+	<body style="margin: 0">
+		<img class="logo" id="gameLogo" src="">
+		<div class="nextgame" id="nextGameText"></div>
+		<div class="gamestatus" id="nextGameInfo"></div>
+		<div class="profilecard"></div>
+		<div class="startbtn" id="inviteBtn"></div>
 
-.nextgame {
-    color: white;
-    font-family: 'Roboto', sans-serif;
-    font-size: 10pt;
-    width: 100%;
-    position: absolute;
-    top: 25%;
-    left: 50%;
-    transform: translate(-50%, 0px);
-    text-align: center;
-}
-.logo {
-    width: 40%;
-    display: block;
-    margin: auto;
-    margin-top: 10%;
-}
-.center {
-    height: 100vh;
-    width: 100%;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-body {
-    animation-name: bg_animation;
-				animation-duration: 15s;
-				animation-timing-function: linear;
-				animation-delay: 0;
-				animation-iteration-count: infinite;
-				animation-direction: alternate;
-				animation-play-state: running;
-}
-.startbtn {
-    background-color: rgba(255, 255, 255, 0.3);
-    position: absolute;
-    width: 90%;
-    bottom: -20px;
-    left: 50%;
-    transform: translate(-50%, 0px);
-    margin-right: 20px;
-    border-radius: 50px;
-    margin-bottom: 20px;
-    color: white;
-    padding: 20px 0px 20px 0px;
-    text-align: center;
-    font-size: 15pt;
-    font-family: 'Roboto', sans-serif;
-}
+		<!-- Live Game View -->
+		<div class="liveGameView" style="margin: 0">
+			
+			<div class="gameStats" id="gameStats">
+				<img class="gameIcon" id="gameIcon" src="/assets/logo.svg">
+			   <span class="viewCount" id="viewCount">0</span>
+			</div>
 
-.profilecard {
-    left: 50%;
-    height: 45%;
-    bottom: 80px;
-    border-radius: 20px;
-    transform: translate(-50%, 0);
-    background: white;
-    width: 90%;
-    position: absolute;
-}
+			<!-- Live Stream Player -->
+			<script src="https://cdn.bootcss.com/flv.js/1.5.0/flv.js"></script>
+			<video id="videoElement" webkit-playsinline="true" playsinline="true" autoplay="true" muted="muted"></video></video>
 
-@keyframes bg_animation {
-				0% {
-					background-color: hsl(157, 52%, 58%); /* green */
-				}
-				
-				20% {
-					background-color: hsl(182, 52%, 57%); /* light blue */
-				}
+			<div class="questionWindow" id="questionWindow">
+				<div class="countdown" id="countdown"></div>
+				<div class="questionText" id="questionText">Question Text Goes Here</div>
+				<div class="questionInfo" id="questionInfo">
+					<span class="questionCount" id="questionCount"></span>
+				</div>
+			</div>
+			
+		<div class="toastWindow" id="toastWindow">
+			<img class="toastIcon" id="toastIcon" src="/assets/majorityrules2-72_x_72.png">
+			<div class="toastText" id="toastText">Toast Text Goes Here</div>
+		</div>
 
-				40% {
-					background-color: hsl(225, 46%, 60%); /* blue */
-				}
-
-				60% {
-					background-color: hsl(280, 45%, 58%); /* purple */
-				}
-
-				80% {
-					background-color: hsl(323, 40%, 54%); /* pink */
-				}
-
-				100% {
-					background-color: hsl(32, 52%, 54%); /* orange */
-				}
-
-			}
-</style>
-</body>
+		<script type="text/javascript" src="/js/schedule/api.js"></script>
+		<script type="text/javascript" src="/js/schedule/config.js"></script>
+		<script type="text/javascript" src="/js/liveGame.js"></script>
+		<script type="text/javascript" src="/js/notifications.js"></script>
+		<link rel="stylesheet" href="/css/schedule.css"/>
+		<link rel="stylesheet" href="/css/debug.css"/>
+		<link rel="stylesheet" href="/css/liveGame.css"/>
+	</body>
 </html>

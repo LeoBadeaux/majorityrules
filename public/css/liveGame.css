@@ -1,0 +1,145 @@
+.liveGameView video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    top: 0%;
+    left: 0%;
+    z-index: -1;
+}
+
+.questionWindow{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    background-color: rgb(255, 136, 0);
+    animation: debugPanelActive .5s;
+    display: none;
+    z-index: -1;
+}
+
+.questionWindow .questionText {
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+    width: 80%;
+    position: absolute;
+    top: 28%;
+    left: 50%;
+    transform: translate(-50%, 0px);
+    text-align: center;
+}
+
+/*Question Countdown*/
+.questionWindow .countdown {
+    background-color: rgb(255, 255, 255);
+    position: absolute;
+    width: 100%;
+    /*bottom: 95%;*/
+    float: top;
+    left: 50%;
+    transform: translate(-50%, 0px);
+    margin-right: 20px;
+    border-radius: 50px;
+    margin-bottom: 10px;
+    color: rgb(0, 0, 0);
+    padding: 5px 0px 0px 0px;
+    text-align: center;
+    font-size: 15pt;
+    font-family: 'Roboto', sans-serif;
+    display: none;
+    animation: countdownTimer 10s;
+    z-index: 0;
+}
+
+/*Question Info*/
+.questionWindow .questionInfo .questionCount {
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    font-size: 10pt;
+    width: 100%;
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    transform: translate(-50%, 0px);
+    text-align: center;
+}
+
+/*Show Toast*/
+.toastWindow {
+     left: 50%;
+     height: 20%;
+     bottom: 30px;
+     border-radius: 5px;
+     transform: translate(-50%, 0);
+     background: white;
+     width: 80%;
+     position: absolute;
+     display: none;
+     animation: toastReveal .5s;
+}
+
+.toastWindow .toastText {
+    color: black;
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+    width: 80%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+/*Toast Animation*/
+
+@keyframes toastReveal {
+    0% {
+        bottom: -180px;
+    }
+    100% {
+        bottom: 30px;
+    }
+}
+
+@keyframes toastRemove {
+    0% {
+        bottom: 30px;
+    }
+    100% {
+        bottom: -180px;
+    }
+}
+
+/*Debug Panel Animations*/
+
+@keyframes debugPanelActive {
+    0% {
+        transform: translate(-50%, 50%);
+    }
+    100% {
+        transform: translate(-50%, -50%);
+    }
+}
+
+@keyframes debugPanelInactive {
+    0% {
+        transform: translate(-50%, -50%);
+    }
+    100% {
+        transform: translate(-50%, 50%);
+    }
+}
+
+@keyframes countdownTimer {
+    0% {
+        left: 50%;
+    }
+    100% {
+        left: -50%;
+    }
+}

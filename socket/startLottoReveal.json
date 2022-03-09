@@ -1,0 +1,8 @@
+{
+    "type": "lotteryDraw",
+    "title": "Majority Rules Pick 4",
+    "lotteryId": "10001",
+    "dateOfDraw": "2018-01-01",
+    "totalDrawNumbers": [1,2,3,4],
+    "fullScreenDisplay": false
+}

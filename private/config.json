@@ -1,0 +1,20 @@
+{
+    "applicationName": "Majority Rules",
+    "applicationInfo": {
+        "name": "Majority Rules",
+        "icon": "/assets/majorityrules2-512_x_512.png"
+    },
+    "debug": {
+        "enabled": true,
+        "changeApiUrl": true
+    },
+    "schedule": {
+        "bgAnimation": true,
+        "invite": {
+            "enabled": true,
+            "btnText": "Invite for Extra Lives"
+        }
+    },
+    "liveGame": {},
+    "notification": {}
+}
